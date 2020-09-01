@@ -71,7 +71,8 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "gear-up:build:production"
+              "browserTarget": "gear-up:build:production",
+              "proxyConfig": "./proxy.conf.json"
             }
           }
         },

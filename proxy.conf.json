@@ -1,0 +1,20 @@
+{
+  "/games": {
+    "target": "https://api-v3.igdb.com",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/games": "/games"
+    }
+  },
+
+  "/companies": {
+    "target": "https://api-v3.igdb.com",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/companies": "/companies"
+    }
+  }
+}
+
