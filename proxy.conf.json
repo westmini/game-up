@@ -15,6 +15,15 @@
     "pathRewrite": {
       "^/companies": "/companies"
     }
+  },
+
+  "/genre": {
+    "target": "https://api-v3.igdb.com",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/genre": "/genre"
+    }
   }
 }
 
