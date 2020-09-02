@@ -128,5 +128,8 @@
       }
     }
   },
-  "defaultProject": "gear-up"
+  "defaultProject": "gear-up",
+  "cli": {
+    "analytics": false
+  }
 }

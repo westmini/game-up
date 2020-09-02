@@ -5,7 +5,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
   providedIn: 'root'
 })
 export class GamesService {
-  endPoint = 'http://localhost:4200/companies';
+  endPoint = 'http://localhost:4200/genres';
 
   constructor(private httpClient: HttpClient) {
   }

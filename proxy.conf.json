@@ -17,12 +17,12 @@
     }
   },
 
-  "/genre": {
+  "/genres": {
     "target": "https://api-v3.igdb.com",
     "secure": true,
     "changeOrigin": true,
     "pathRewrite": {
-      "^/genre": "/genre"
+      "^/genres": "/genres"
     }
   }
 }
