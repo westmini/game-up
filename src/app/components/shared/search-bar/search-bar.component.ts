@@ -32,6 +32,5 @@ export class SearchBarComponent implements OnInit {
   submitForm(event): void {
    const search: Search = this.searchBar.value;
    this.submitSearch.emit(search);
-   console.log('Search Bar component emit');
   }
 }

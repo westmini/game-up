@@ -17,7 +17,6 @@ export class GameSearchComponent implements OnInit {
 
   postGameSearch(event): void {
     this.callSearchApi.emit(event);
-    console.log('Post Search Event: ', event);
   }
 
 }
