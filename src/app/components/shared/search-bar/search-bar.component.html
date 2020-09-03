@@ -1,0 +1,9 @@
+<div fxFill fxLayout="column" fxLayoutAlign="start center" style="background-color: indianred;">
+    <form [formGroup]="searchBar" fxLayout="column" fxLayoutAlign="space-evenly" id="formContainer">
+      <mat-form-field id="search" fxFlexAlign="center">
+        <mat-label>Search For A Game</mat-label>
+        <input formControlName="searchField" matInput placeholder="Enter The Name Of The Game You Want To Search For!">
+      </mat-form-field>
+      <button id="formButton" fxFlexAlign="center" (click)="submitForm($event)" mat-button color="warn">Search For A Game</button>
+    </form>
+</div>

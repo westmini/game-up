@@ -10,9 +10,6 @@ export class HomeComponent implements OnInit {
   constructor(private gameService: GamesService) { }
 
   ngOnInit(): void {
-  this.gameService.getGames().subscribe(data => {
-    console.log('Data: ', data);
-  });
   }
 
 }
