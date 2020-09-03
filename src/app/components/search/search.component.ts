@@ -7,6 +7,7 @@ import {GamesService} from '../../services/games.service';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
+  hold = [];
 
   constructor(private gamesService: GamesService) {
   }
@@ -16,8 +17,12 @@ export class SearchComponent implements OnInit {
 
   callSearch(search) {
     console.log('Search: ', search);
+    this.hold = [];
     this.gamesService.getGames(search.searchField).subscribe(games => {
-    console.log('Games: ', games);
-  });
+      Object.values(games).forEach(game => {
+        this.hold.push(game);
+      });
+      console.log('Hold: ', this.hold);
+    });
   }
 }
