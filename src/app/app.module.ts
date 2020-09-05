@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './components/home/home.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { SignUpComponent } from './components/forms/sign-up/sign-up.component';
 import { LoginComponent } from './components/forms/login/login.component';
 import {HttpClientModule} from '@angular/common/http';
@@ -15,6 +15,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import { TableComponent } from './components/shared/table/table.component';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import {MatButtonModule} from '@angular/material/button';
     LoginComponent,
     SearchComponent,
     GameSearchComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import {MatButtonModule} from '@angular/material/button';
     FlexLayoutModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

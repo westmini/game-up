@@ -1,10 +1,12 @@
 import {Platform} from './platform';
 
 export class Game {
-  title: string;
+  gameName: string;
   description: string;
-  rating: number;
-  releaseDate: Date;
-  platforms: Array<Platform>;
+  genre: string;
+  url: string;
+  rating?: number;
+  releaseDate?: Date;
+  platforms?: Array<Platform>;
 }
 

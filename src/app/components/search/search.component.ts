@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {GamesService} from '../../services/games.service';
+import {Game} from '../../models/classes/game';
 
 @Component({
   selector: 'app-search',
@@ -7,8 +8,8 @@ import {GamesService} from '../../services/games.service';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  hold = [];
-
+  game: Game;
+  games: Array<Game> = [];
   constructor(private gamesService: GamesService) {
   }
 
@@ -16,13 +17,14 @@ export class SearchComponent implements OnInit {
   }
 
   callSearch(search) {
-    console.log('Search: ', search);
-    this.hold = [];
-    this.gamesService.getGames(search.searchField).subscribe(games => {
-      Object.values(games).forEach(game => {
-        this.hold.push(game);
+
+    this.gamesService.getGames(search.searchField).subscribe(gamesResponse => {
+      Object.values(gamesResponse).forEach(test => {
+        this.game = new Game();
+        this.game = {gameName: test.name, description: test.summary, genre: test.genre, url: test.url}
+        this.games.push(this.game);
       });
-      console.log('Hold: ', this.hold);
+      console.log('Games returned from Endpoint: ', this.games);
     });
   }
 }
