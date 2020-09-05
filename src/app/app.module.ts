@@ -17,6 +17,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { TableComponent } from './components/shared/table/table.component';
 import {MatTableModule} from '@angular/material/table';
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -30,16 +31,17 @@ import {MatTableModule} from '@angular/material/table';
     SearchBarComponent,
     TableComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    FlexLayoutModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatTableModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        FlexLayoutModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        MatTableModule,
+        MatCardModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,8 @@
 import {Component, DoCheck, Input, OnChanges, OnInit} from '@angular/core';
 import {Game} from '../../../models/classes/game';
-import {GamesService} from "../../../services/games.service";
-import {Search} from "../../../models/interfaces/search";
+import {GamesService} from '../../../services/games.service';
+import {Search} from '../../../models/interfaces/search';
+import {MatTableDataSource} from '@angular/material/table';
 
 
 @Component({
@@ -13,16 +14,15 @@ import {Search} from "../../../models/interfaces/search";
 export class TableComponent implements OnInit, DoCheck {
   @Input() tableData: Array<Game>;
   displayedColumns: string[] = ['gameName', 'description'];
-  dataSource: Array<any> = []
+  dataSource: MatTableDataSource < Game> = new MatTableDataSource<Game>() ;
   constructor(private gamesService: GamesService) { }
 
   ngOnInit(): void {
-this.callSearch({searchValue: 'Halo'});
   }
 
   ngDoCheck(): void {
-    this.dataSource = this.tableData;
-    console.log('Table Data: ', this.tableData);
+    this.dataSource.data = this.tableData;
+    console.log('Data Sauce: ', this.dataSource);
   }
 
   log(val){

@@ -14,11 +14,16 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+
+
+
   }
 
   callSearch(search) {
 
     this.gamesService.getGames(search.searchField).subscribe(gamesResponse => {
+      this.games = [];
       Object.values(gamesResponse).forEach(test => {
         this.game = new Game();
         this.game = {gameName: test.name, description: test.summary, genre: test.genre, url: test.url}

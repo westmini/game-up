@@ -1,1 +1,20 @@
-<app-search-bar></app-search-bar>
+<dix fxLayout="column" fxFill>
+  <div fxLayout="row" fxLayoutAlign="center" style="background-color: teal;">
+    <h1>Welcome To Game DB</h1>
+  </div>
+  <div fxLayout="row wrap" fxLayoutAlign="space-evenly" style="background-color: teal;">
+    <mat-card *ngFor="let game of games" class="example-card" fxFlex="20">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{game.gameName}}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image [src]="game.screenshots[0]" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <p>
+         {{game.description}}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+</dix>

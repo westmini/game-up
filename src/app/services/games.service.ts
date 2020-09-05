@@ -14,7 +14,14 @@ export class GamesService {
     const gamesEndpoint = this.endPoint + '/games';
     let headers = new HttpHeaders();
     headers = headers.set('user-key', '3529e735235b970f787422c16376f395');
-    return this.httpClient.post(gamesEndpoint, 'fields *; search "'  + searchTitle + '";' + ' limit 20;', {headers});
+    return this.httpClient.post(gamesEndpoint, 'fields *; search "' + searchTitle + '";' + ' limit 20;', {headers});
+  }
+
+  gameAllGames() {
+    const gamesEndpoint = this.endPoint + '/games';
+    let headers = new HttpHeaders();
+    headers = headers.set('user-key', '3529e735235b970f787422c16376f395');
+    return this.httpClient.post(gamesEndpoint, 'fields *; fields screenshots.*; fields genres.*; fields platforms.*; fields release_dates.*; fields cover.*;  where summary != null & screenshots != null & name = "Halo"*; limit 40;', {headers});
   }
 
   getGenres() {
