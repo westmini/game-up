@@ -26,7 +26,7 @@ export class SearchComponent implements OnInit {
       this.games = [];
       Object.values(gamesResponse).forEach(test => {
         this.game = new Game();
-        this.game = {gameName: test.name, description: test.summary, genre: test.genre, url: test.url}
+        this.game = {id: test.id, gameName: test.name, description: test.summary, genre: test.genre, url: test.url}
         this.games.push(this.game);
       });
       console.log('Games returned from Endpoint: ', this.games);
