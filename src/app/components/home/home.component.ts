@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {GamesService} from '../../services/games.service';
-import {Game} from '../../models/classes/game';
+import {Game, updateGameScreenshots} from '../../models/classes/game';
 
 @Component({
   selector: 'app-home',
@@ -30,16 +30,10 @@ export class HomeComponent implements OnInit {
           screenshots: gameResponse.screenshots
         };
       });
-      this.updateGameScreenshots();
+      updateGameScreenshots(this.games);
     });
   }
 
-  updateGameScreenshots(): void {
-    this.games.forEach(game => {
-      game.screenshots = game.screenshots.map(screenshot => {
-        return screenshot.url.replace('thumb', '1080p');
-      });
-    });
-  }
+
 }
 

@@ -1,0 +1,19 @@
+<dix fxLayout="column" fxFill>
+  <div fxLayout="row" fxLayoutAlign="center">
+    <h1>Welcome To Game DB</h1>
+  </div>
+  <div fxLayout="row wrap" fxLayoutAlign="space-evenly" >
+    <mat-card *ngFor="let game of games" class="example-card" fxFlex="20">
+      <div fxLayout="row" fxLayoutAlign="center">
+        <h3>{{game.gameName}}</h3>
+      </div>
+      <img mat-card-image [src]="game.screenshots[0]" alt="game photo">
+      <mat-card-content>
+        <p>
+          {{game.description}}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+</dix>
