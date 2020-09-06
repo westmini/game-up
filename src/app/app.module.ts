@@ -18,6 +18,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { TableComponent } from './components/shared/table/table.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from "@angular/material/card";
+import { CardsComponent } from './components/shared/cards/cards.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {MatCardModule} from "@angular/material/card";
     SearchComponent,
     GameSearchComponent,
     SearchBarComponent,
-    TableComponent
+    TableComponent,
+    CardsComponent
   ],
     imports: [
         BrowserModule,
