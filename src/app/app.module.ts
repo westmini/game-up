@@ -19,6 +19,7 @@ import { TableComponent } from './components/shared/table/table.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from "@angular/material/card";
 import { CardsComponent } from './components/shared/cards/cards.component';
+import { ImageGridComponent } from './components/shared/image-grid/image-grid.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CardsComponent } from './components/shared/cards/cards.component';
     GameSearchComponent,
     SearchBarComponent,
     TableComponent,
-    CardsComponent
+    CardsComponent,
+    ImageGridComponent
   ],
     imports: [
         BrowserModule,
