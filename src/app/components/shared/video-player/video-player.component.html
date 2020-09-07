@@ -1,0 +1,13 @@
+
+    <div fxLayout="row wrap" fxLayoutAlign="space-evenly">
+      <mat-card *ngFor="let videodata of videoData" class="example-card" fxFlex="20">
+        <div fxLayout="row" fxLayoutAlign="center">
+                <h3>{{videodata.gameName}}</h3>
+        </div>
+            <mat-card-content>
+            <iframe width="400" height="200" [src]="videodata.videos[0]">
+            </iframe></mat-card-content>
+      
+      </mat-card>
+       </div>
+       

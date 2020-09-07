@@ -20,6 +20,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from "@angular/material/card";
 import { CardsComponent } from './components/shared/cards/cards.component';
 import { ImageGridComponent } from './components/shared/image-grid/image-grid.component';
+import { VideoPlayerComponent } from './components/shared/video-player/video-player.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ImageGridComponent } from './components/shared/image-grid/image-grid.co
     SearchBarComponent,
     TableComponent,
     CardsComponent,
-    ImageGridComponent
+    ImageGridComponent,
+    VideoPlayerComponent
   ],
     imports: [
         BrowserModule,
