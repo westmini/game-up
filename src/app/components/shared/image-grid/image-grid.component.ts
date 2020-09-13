@@ -1,25 +1,28 @@
-import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import {AfterContentChecked, Component, Input, OnInit} from '@angular/core';
+import {Game} from '../../../models/classes/game';
 
 @Component({
   selector: 'app-image-grid',
   templateUrl: './image-grid.component.html',
   styleUrls: ['./image-grid.component.scss']
 })
-export class ImageGridComponent implements OnInit, AfterViewInit {
-  @Input() gridData: Array<any>;
+export class ImageGridComponent implements OnInit, AfterContentChecked {
+  @Input() gridData: Array<Game>;
+  firstRow: Array<Game>;
+  rightColumn: Array<Game>;
 
   constructor() {
   }
 
   ngOnInit(): void {
-    this.populateImageGrid();
   }
 
-  populateImageGrid(): void {
-    this.gridData = this.gridData.slice(0, 5);
+  segmentArray() {
+    this.firstRow = this.gridData.slice(0, 3);
+    this.rightColumn = this.gridData.slice(4, 6);
   }
 
-  ngAfterViewInit(): void {
-    console.log('grid ', this.gridData)
+  ngAfterContentChecked(): void {
+    this.segmentArray();
   }
 }
