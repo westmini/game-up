@@ -5,7 +5,7 @@ import {SearchComponent} from './components/search/search.component';
 import {HomeComponent} from './components/home/home.component';
 
 
-const routes: Routes = [{path: '', component: SearchComponent}  ];
+const routes: Routes = [{path: '', component: HomeComponent}  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

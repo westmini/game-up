@@ -33,4 +33,5 @@ export class SearchBarComponent implements OnInit {
    const search: Search = this.searchBar.value;
    this.submitSearch.emit(search);
   }
+
 }

@@ -1,0 +1,23 @@
+<div fxLayout="row" fxLayoutAlign="center" *ngIf="gridData.length > 0">
+  <div class="grid-container">
+    <div fxLayout="row" fxLayoutAlign="space-evenly">
+      <div *ngFor="let firstRowGame of firstRow" fxLayout="column" fxLayoutAlign="end" class="top-row padding-10" fxFlex="33.3">
+        <h1 class="image-text" fxFlexAlign="start">{{firstRowGame.gameName}}</h1>
+        <img fxFlex="100" src="{{firstRowGame.screenshots[0]}}">
+      </div>
+    </div>
+    <div fxLayout="row" id="secondRow">
+      <div fxLayout="column" fxFlex="60" fxLayoutAlign="end" class="padding-10">
+        <h1 class="image-text" fxFlexAlign="start">{{gridData[3].gameName}}</h1>
+        <img [src]="gridData[3].screenshots[0]" fxFlex="100">
+      </div>
+      <div fxLayout="column" fxFlex="40" fxLayoutAlign="end">
+        <div fxFlex="50" *ngFor="let rightColumnGame of rightColumn" class="padding-10">
+          <h1 class="image-text" fxFlexAlign="end">{{rightColumnGame.gameName}}</h1>
+          <img src="{{rightColumnGame.screenshots[0]}}" fxFlex="100">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

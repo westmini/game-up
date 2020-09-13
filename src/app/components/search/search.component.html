@@ -1,6 +1,2 @@
 <app-game-search (callSearchApi)="callSearch($event)"></app-game-search>
-<div fxLayout="row" fxLayoutAlign="center"  style="flex-wrap: wrap; width: 100%;" *ngFor="let game of hold;">
-  <div>
-    {{game.name}}
-  </div>
-</div>
+<app-table [tableData]="games"></app-table>
