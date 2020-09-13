@@ -21,6 +21,7 @@ import {MatCardModule} from "@angular/material/card";
 import { CardsComponent } from './components/shared/cards/cards.component';
 import { ImageGridComponent } from './components/shared/image-grid/image-grid.component';
 import { VideoPlayerComponent } from './components/shared/video-player/video-player.component';
+import { SafePipe } from './models/classes/safe.pipe';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { VideoPlayerComponent } from './components/shared/video-player/video-pla
     TableComponent,
     CardsComponent,
     ImageGridComponent,
-    VideoPlayerComponent
+    VideoPlayerComponent,
+    SafePipe,
   ],
     imports: [
         BrowserModule,

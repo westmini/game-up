@@ -1,13 +1,25 @@
-
-    <div fxLayout="row wrap" fxLayoutAlign="space-evenly">
-      <mat-card *ngFor="let videodata of videoData" class="example-card" fxFlex="20">
-        <div fxLayout="row" fxLayoutAlign="center">
-                <h3>{{videodata.gameName}}</h3>
+<div fxLayout="row" fxLayoutAlign="center" *ngIf="videoData.length > 0">
+        <div class="grid-container">
+          <div fxLayout="row" fxLayoutAlign="space-evenly">
+            <div *ngFor="let firstRowGame of firstRow" fxLayout="column" fxLayoutAlign="end" class="top-row padding-10" fxFlex="33.3">
+              <h1 class="image-text" fxFlexAlign="start">{{firstRowGame.gameName}}</h1>
+              <iframe fxFlex="100" [src]="firstRowGame.videos[0] | safe">
+              </iframe>
+            </div>
+          </div>
+          <div fxLayout="row" id="secondRow">
+            <div fxLayout="column" fxFlex="60" fxLayoutAlign="end" class="padding-10">
+              <h1 class="image-text" fxFlexAlign="start">{{videoData[3].gameName}}</h1>
+              <iframe fxFlex="100" [src]="videoData[3].videos[0] | safe">
+            </iframe>
+            </div>
+            <div fxLayout="column" fxFlex="40" fxLayoutAlign="end">
+              <div fxFlex="50" *ngFor="let rightColumnGame of rightColumn" class="padding-10">
+                <h1 class="image-text" fxFlexAlign="end">{{rightColumnGame.gameName}}</h1>
+                <iframe fxFlex="100" [src]="rightColumnGame.videos[0] | safe"></iframe>
+              </div>
+            </div>
+          </div>
         </div>
-            <mat-card-content>
-            <iframe width="400" height="200" [src]="videodata.videos[0]">
-            </iframe></mat-card-content>
+      </div>
       
-      </mat-card>
-       </div>
-       

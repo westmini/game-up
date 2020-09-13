@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import {AfterContentChecked, Component, Input, OnInit} from '@angular/core';
 import {Game} from '../../../models/classes/game';
 
 @Component({
@@ -6,15 +6,25 @@ import {Game} from '../../../models/classes/game';
   templateUrl: './video-player.component.html',
   styleUrls: ['./video-player.component.scss']
 })
-export class VideoPlayerComponent implements OnInit, AfterViewInit {
+export class VideoPlayerComponent implements OnInit, AfterContentChecked {
   @Input() videoData: Array<any>;
+  firstRow: Array<Game>;
+  rightColumn: Array<Game>;
+
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
 
-  ngAfterViewInit(): void {
-    console.log('video data ', this.videoData)
+  segmentArray() {
+    this.firstRow = this.videoData.slice(0, 3);
+    this.rightColumn = this.videoData.slice(4, 6);
+  }
+
+  ngAfterContentChecked(): void {
+    this.segmentArray();
+    console.log("first row", this.firstRow);
   }
 }
