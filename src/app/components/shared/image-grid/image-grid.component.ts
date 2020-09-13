@@ -6,8 +6,9 @@ import {Game} from '../../../models/classes/game';
   templateUrl: './image-grid.component.html',
   styleUrls: ['./image-grid.component.scss']
 })
-export class ImageGridComponent implements OnInit, AfterContentChecked {
+export class GridComponent implements OnInit, AfterContentChecked {
   @Input() gridData: Array<Game>;
+  @Input() displayVideo: boolean
   firstRow: Array<Game>;
   rightColumn: Array<Game>;
 

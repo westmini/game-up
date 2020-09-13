@@ -14,12 +14,11 @@ import { SearchBarComponent } from './components/shared/search-bar/search-bar.co
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
 import { TableComponent } from './components/shared/table/table.component';
 import {MatTableModule} from '@angular/material/table';
-import {MatCardModule} from "@angular/material/card";
+import {MatCardModule} from '@angular/material/card';
 import { CardsComponent } from './components/shared/cards/cards.component';
-import { ImageGridComponent } from './components/shared/image-grid/image-grid.component';
+import {GridComponent} from './components/shared/image-grid/image-grid.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +32,7 @@ import { ImageGridComponent } from './components/shared/image-grid/image-grid.co
     SearchBarComponent,
     TableComponent,
     CardsComponent,
-    ImageGridComponent
+    GridComponent
   ],
     imports: [
         BrowserModule,
