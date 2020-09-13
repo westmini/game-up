@@ -1,42 +1,21 @@
 <div fxLayout="row" fxLayoutAlign="center" *ngIf="gridData.length > 0">
-  <div style="width: 65%; max-width: 65%; height: 50%; max-height: 50%;">
+  <div class="grid-container">
     <div fxLayout="row" fxLayoutAlign="space-evenly">
-      <div fxLayout="column" fxLayoutAlign="end" style="height: 350px" fxFlex="33.3">
-        <h1 style="position:absolute; padding-left: 10px; color: #F7EDE2"
-            fxFlexAlign="start">{{gridData[0].gameName}}</h1>
-        <img fxFlex="100" [src]="gridData[0].screenshots[0]">
+      <div *ngFor="let firstRowGame of firstRow" fxLayout="column" fxLayoutAlign="end" class="top-row padding-10" fxFlex="33.3">
+        <h1 class="image-text" fxFlexAlign="start">{{firstRowGame.gameName}}</h1>
+        <img fxFlex="100" src="{{firstRowGame.screenshots[0]}}">
       </div>
-      <div fxLayout="column" fxLayoutAlign="end" style="height: 350px" fxFlex="33.3">
-        <h1 style="position:absolute; padding-left: 10px; color: #F7EDE2"
-            fxFlexAlign="start">{{gridData[1].gameName}}</h1>
-        <img fxFlex="100" [src]="gridData[1].screenshots[0]">
-      </div>
-      <div fxLayout="column" fxLayoutAlign="end" style="height: 350px" fxFlex="33.3">
-        <h1 style="position:absolute; padding-left: 10px; color: #F7EDE2"
-            fxFlexAlign="start">{{gridData[2].gameName}}</h1>
-        <img fxFlex="100" [src]="gridData[2].screenshots[1]">
-      </div>
-
-
     </div>
-    <div fxLayout="row" style="max-height: 500px">
-      <div fxLayout="column" style="width: 60%;" fxLayoutAlign="end">
-        <h1 style="position:absolute; padding-left: 10px; color: #F7EDE2"
-            fxFlexAlign="start">{{gridData[3].gameName}}</h1>
-        <img style="height: 100%;" [src]="gridData[3].screenshots[0]">
+    <div fxLayout="row" id="secondRow">
+      <div fxLayout="column" fxFlex="60" fxLayoutAlign="end" class="padding-10">
+        <h1 class="image-text" fxFlexAlign="start">{{gridData[3].gameName}}</h1>
+        <img [src]="gridData[3].screenshots[0]" fxFlex="100">
       </div>
-      <div fxLayout="column" style="width: 40%">
-        <div style="width: 100%; height: 50%;" fxLayout="row">
-          <h1 style="position:absolute; padding-left: 10px; color: #F7EDE2"
-              fxFlexAlign="end">{{gridData[4].gameName}}</h1>
-          <img style="height: 100%; width: 100%;" [src]="gridData[4].screenshots[0]">
+      <div fxLayout="column" fxFlex="40" fxLayoutAlign="end">
+        <div fxFlex="50" *ngFor="let rightColumnGame of rightColumn" class="padding-10">
+          <h1 class="image-text" fxFlexAlign="end">{{rightColumnGame.gameName}}</h1>
+          <img src="{{rightColumnGame.screenshots[0]}}" fxFlex="100">
         </div>
-        <div style="width: 100%; height: 50%;" fxLayout="row">
-          <h1 style="position:absolute; padding-left: 10px; color: #F7EDE2"
-              fxFlexAlign="end">{{gridData[5].gameName}}</h1>
-          <img style="height: 100%; width: 100%;" [src]="gridData[5].screenshots[0]">
-        </div>
-
       </div>
     </div>
   </div>
