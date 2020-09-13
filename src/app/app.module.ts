@@ -18,13 +18,9 @@ import { TableComponent } from './components/shared/table/table.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
 import { CardsComponent } from './components/shared/cards/cards.component';
-<<<<<<< HEAD
-import { ImageGridComponent } from './components/shared/image-grid/image-grid.component';
 import { VideoPlayerComponent } from './components/shared/video-player/video-player.component';
 import { SafePipe } from './models/classes/safe.pipe';
-=======
 import {GridComponent} from './components/shared/image-grid/image-grid.component';
->>>>>>> master
 
 @NgModule({
   declarations: [
@@ -38,13 +34,9 @@ import {GridComponent} from './components/shared/image-grid/image-grid.component
     SearchBarComponent,
     TableComponent,
     CardsComponent,
-<<<<<<< HEAD
-    ImageGridComponent,
     VideoPlayerComponent,
     SafePipe,
-=======
     GridComponent
->>>>>>> master
   ],
     imports: [
         BrowserModule,
