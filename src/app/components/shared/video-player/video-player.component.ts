@@ -10,7 +10,7 @@ export class VideoPlayerComponent implements OnInit, AfterContentChecked {
   @Input() videoData: Array<any>;
   firstRow: Array<Game>;
   rightColumn: Array<Game>;
-
+  displayVideo = false;
 
   constructor() { }
 
