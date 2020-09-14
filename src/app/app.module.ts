@@ -18,6 +18,8 @@ import { TableComponent } from './components/shared/table/table.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
 import { CardsComponent } from './components/shared/cards/cards.component';
+import { VideoPlayerComponent } from './components/shared/video-player/video-player.component';
+import { SafePipe } from './models/classes/safe.pipe';
 import {GridComponent} from './components/shared/image-grid/image-grid.component';
 
 @NgModule({
@@ -32,6 +34,8 @@ import {GridComponent} from './components/shared/image-grid/image-grid.component
     SearchBarComponent,
     TableComponent,
     CardsComponent,
+    VideoPlayerComponent,
+    SafePipe,
     GridComponent
   ],
     imports: [

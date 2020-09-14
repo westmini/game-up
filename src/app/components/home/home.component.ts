@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {GamesService} from '../../services/games.service';
-import {Game, updateGameScreenshots} from '../../models/classes/game';
+import {Game, updateGameScreenshots, updateGameVideos} from '../../models/classes/game';
 
 @Component({
   selector: 'app-home',
@@ -27,10 +27,12 @@ export class HomeComponent implements OnInit {
           gameName: gameResponse.name,
           description: gameResponse.summary,
           url: gameResponse.url,
-          screenshots: gameResponse.screenshots
+          screenshots: gameResponse.screenshots,
+          videos: gameResponse.videos,
         };
       });
       updateGameScreenshots(this.games);
+      updateGameVideos(this.games);
     });
   }
 
