@@ -21,6 +21,7 @@ import { CardsComponent } from './components/shared/cards/cards.component';
 import { VideoPlayerComponent } from './components/shared/video-player/video-player.component';
 import { SafePipe } from './models/classes/safe.pipe';
 import {GridComponent} from './components/shared/image-grid/image-grid.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
@@ -43,7 +44,11 @@ import { SingleVideoComponent } from './components/shared/single-video/single-vi
     CarouselComponent,
     SafePipe,
     GridComponent,
+<<<<<<< HEAD
     SingleVideoComponent,
+=======
+    FooterComponent
+>>>>>>> origin/master
   ],
   imports: [
     BrowserModule,
