@@ -21,6 +21,7 @@ import { CardsComponent } from './components/shared/cards/cards.component';
 import { VideoPlayerComponent } from './components/shared/video-player/video-player.component';
 import { SafePipe } from './models/classes/safe.pipe';
 import {GridComponent} from './components/shared/image-grid/image-grid.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {GridComponent} from './components/shared/image-grid/image-grid.component
     CardsComponent,
     VideoPlayerComponent,
     SafePipe,
-    GridComponent
+    GridComponent,
+    FooterComponent
   ],
     imports: [
         BrowserModule,
