@@ -25,6 +25,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {CarouselComponent} from './components/shared/carousel/carousel.component';
+import { SingleVideoComponent } from './components/shared/single-video/single-video.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import {CarouselComponent} from './components/shared/carousel/carousel.component
     CarouselComponent,
     SafePipe,
     GridComponent,
+    SingleVideoComponent,
   ],
   imports: [
     BrowserModule,
