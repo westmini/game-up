@@ -1,0 +1,48 @@
+.grid-container{
+  width: 65%;
+  max-width: 65%;
+  height: 50%;
+  max-height: 50%;
+}
+
+.top-row{
+  height: 250px;
+}
+
+.image-text {
+  position:absolute;
+  padding-left: 10px;
+  color: #F7EDE2;
+}
+
+#image-container {
+  height: 400px;
+}
+
+#secondRow {
+  max-height: 500px;
+}
+.carousel-nav-container{
+  width: 95%;
+  position:absolute;
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.carousel-nav-box{
+  height: 45px;
+  width: 45px;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.carousel-nav-arrow{
+  margin: 0 0 0px;
+  color: white;
+  align-self: center;
+  transform: scale(2);
+}

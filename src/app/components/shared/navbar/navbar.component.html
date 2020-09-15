@@ -1,1 +1,75 @@
-<p>navbar works!</p>
+<div fxLayout="row" fxLayoutAlign="space-evenly" style="width: 100%; background-color: black">
+  <div fxLayout="row" style="width: 65%; max-width: 65%">
+    <div fxLayout="column" fxLayoutAlign="center" fxFlex="25">
+      <video id="myVideo" preload="auto" crossorigin autoplay="true" loop="true" style="width: 150px;">
+        <source [src]="url | safe" type='video/mp4'>
+      </video>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center" fxFlex="25" >
+      <button mat-button style="color: white; padding-top: 5%;" fxFlexAlign="center" [matMenuTriggerFor]="menu">
+        <div fxLayout="row" fxFlex="100">
+          <mat-icon style="color: white; transform: scale(2)">games</mat-icon>
+          <h1 style="color: white; font-size: 30px; padding-left: 25px;">Games</h1>
+        </div>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>dialpad</mat-icon>
+          <span>Redial</span>
+        </button>
+        <button mat-menu-item disabled>
+          <mat-icon>voicemail</mat-icon>
+          <span>Check voice mail</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>notifications_off</mat-icon>
+          <span>Disable alerts</span>
+        </button>
+      </mat-menu>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center" fxFlex="25" >
+      <button mat-button style="color: white; padding-top: 5%;" fxFlexAlign="center" [matMenuTriggerFor]="menu">
+        <div fxLayout="row" fxFlex="100">
+          <mat-icon style="color: white; transform: scale(2)">games</mat-icon>
+          <h1 style="color: white; font-size: 30px; padding-left: 25px;">Games</h1>
+        </div>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>dialpad</mat-icon>
+          <span>Redial</span>
+        </button>
+        <button mat-menu-item disabled>
+          <mat-icon>voicemail</mat-icon>
+          <span>Check voice mail</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>notifications_off</mat-icon>
+          <span>Disable alerts</span>
+        </button>
+      </mat-menu>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center" fxFlex="25">
+      <button mat-button style="color: white; padding-top: 5%;" fxFlexAlign="end" [matMenuTriggerFor]="menu">
+        <div fxLayout="row" fxFlex="100">
+          <mat-icon style="color: white; transform: scale(2)">games</mat-icon>
+          <h1 style="color: white; font-size: 30px; padding-left: 25px;">Games</h1>
+        </div>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>dialpad</mat-icon>
+          <span>Redial</span>
+        </button>
+        <button mat-menu-item disabled>
+          <mat-icon>voicemail</mat-icon>
+          <span>Check voice mail</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>notifications_off</mat-icon>
+          <span>Disable alerts</span>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+</div>

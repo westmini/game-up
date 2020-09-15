@@ -22,6 +22,10 @@ import { VideoPlayerComponent } from './components/shared/video-player/video-pla
 import { SafePipe } from './models/classes/safe.pipe';
 import {GridComponent} from './components/shared/image-grid/image-grid.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {CarouselComponent} from './components/shared/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -36,21 +40,25 @@ import { FooterComponent } from './components/shared/footer/footer.component';
     TableComponent,
     CardsComponent,
     VideoPlayerComponent,
+    CarouselComponent,
     SafePipe,
     GridComponent,
     FooterComponent
   ],
-    imports: [
-        BrowserModule,
-        HttpClientModule,
-        AppRoutingModule,
-        FlexLayoutModule,
-        BrowserAnimationsModule,
-        ReactiveFormsModule,
-        MatInputModule,
-        MatTableModule,
-        MatCardModule
-    ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    FlexLayoutModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatTableModule,
+    MatCardModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatIconModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

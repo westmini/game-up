@@ -1,6 +1,4 @@
- <div fxLayout="row" fxLayoutAlign="center">
-    <h1 style="font-size: 70px; padding-top: 2.5%; padding-bottom: 2.5%;"> Welcome To Gear Up!</h1>
-  </div>
-  <app-image-grid [gridData]="games"></app-image-grid>
-  <app-video-player [videoData]="games"></app-video-player>
-<app-footer></app-footer>
+<app-navbar></app-navbar>
+<app-image-grid [gridData]="games"></app-image-grid>
+<app-video-player [videoData]="games"></app-video-player>
+<app-carousel *ngIf="games.length > 0" [games]="games"></app-carousel>
