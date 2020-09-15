@@ -10,7 +10,7 @@ export class VideoPlayerComponent implements OnInit, AfterContentChecked {
   @Input() videoData: Array<any>;
   firstRow: Array<Game>;
   rightColumn: Array<Game>;
-  displayVideo = false;
+  displayVideo = true;
 
   constructor() { }
 
@@ -25,6 +25,5 @@ export class VideoPlayerComponent implements OnInit, AfterContentChecked {
 
   ngAfterContentChecked(): void {
     this.segmentArray();
-    console.log("first row", this.firstRow);
   }
 }
