@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Game } from 'src/app/models/classes/game';
 
 @Component({
   selector: 'app-single-video',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./single-video.component.scss']
 })
 export class SingleVideoComponent implements OnInit {
-
+  @Input() videoData: Array<any>;
+  
   constructor() { }
 
   ngOnInit(): void {
   }
 
+ngAfterContentChecked(): void {
+ 
+}
 }

@@ -44,11 +44,8 @@ import { SingleVideoComponent } from './components/shared/single-video/single-vi
     CarouselComponent,
     SafePipe,
     GridComponent,
-<<<<<<< HEAD
     SingleVideoComponent,
-=======
     FooterComponent
->>>>>>> origin/master
   ],
   imports: [
     BrowserModule,

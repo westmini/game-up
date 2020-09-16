@@ -1,1 +1,11 @@
-<p>single-video works!</p>
+<div fxLayout="row" fxLayoutAlign="center center" class="single-video">
+    <div fxLayout="row" fxLayoutAlign="space-evenly" style="max-width: 65%; width:65%;">
+
+    <div fxLayout="column" fxLayoutAlign="end" fxFill>
+      <h1 class="svideo-text" fxFlexAlign="center">{{videoData[0].gameName}}</h1>
+      <iframe style="height:500px;" [src]="videoData[0].videos[0] | safe"></iframe>
+     
+    </div>
+
+    </div>
+    </div>
