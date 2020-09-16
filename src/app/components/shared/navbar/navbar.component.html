@@ -6,26 +6,28 @@
       </video>
     </div>
     <div fxLayout="column" fxLayoutAlign="center" fxFlex="25" >
-      <button mat-button style="color: white; padding-top: 5%;" fxFlexAlign="center" [matMenuTriggerFor]="menu">
-        <div fxLayout="row" fxFlex="100">
-          <mat-icon style="color: white; transform: scale(2)">games</mat-icon>
-          <h1 style="color: white; font-size: 30px; padding-left: 25px;">Games</h1>
-        </div>
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>
-          <mat-icon>dialpad</mat-icon>
-          <span>Redial</span>
-        </button>
-        <button mat-menu-item disabled>
-          <mat-icon>voicemail</mat-icon>
-          <span>Check voice mail</span>
-        </button>
-        <button mat-menu-item>
-          <mat-icon>notifications_off</mat-icon>
-          <span>Disable alerts</span>
-        </button>
-      </mat-menu>
+      <form class="example-form" [formGroup]="gameSearchInput" style="width: 100%;">
+        <mat-form-field class="example-full-width" style="width: 100%;">
+          <div fxlayout="row" fxFill  style="background-color: white; height: 100px;">
+            <div fxLayout="column" fxFlex="87.5">
+              <input [matAutocomplete]="auto" matInput style="font-size: 3em; width: 100%;">
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
+                  <img class="example-option-img" aria-hidden [src]="state.flag" height="25">
+                  <span>{{state.name}}</span> |
+                  <small>Population: {{state.population}}</small>
+                </mat-option>
+              </mat-autocomplete>
+            </div>
+<!--            <div fxLayout="column" fxFlex="12.5" fxLayoutAlign="center">-->
+<!--              <mat-icon style="transform: scale(2)">search</mat-icon>-->
+<!--            </div>-->
+          </div>
+<!--          <mat-label style="color: black">Telephone</mat-label>-->
+<!--          <input  formControlName="searchField" type="tel" matInput placeholder="Enter a Game Name">-->
+<!--          <mat-icon matSuffix>mode_edit</mat-icon>-->
+        </mat-form-field>
+      </form>
     </div>
     <div fxLayout="column" fxLayoutAlign="center" fxFlex="25" >
       <button mat-button style="color: white; padding-top: 5%;" fxFlexAlign="center" [matMenuTriggerFor]="menu">

@@ -26,6 +26,9 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {CarouselComponent} from './components/shared/carousel/carousel.component';
+import { HeaderSearchComponent } from './components/shared/header-search/header-search.component';
+import {MatOptionModule} from "@angular/material/core";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
 @NgModule({
   declarations: [
@@ -43,7 +46,8 @@ import {CarouselComponent} from './components/shared/carousel/carousel.component
     CarouselComponent,
     SafePipe,
     GridComponent,
-    FooterComponent
+    FooterComponent,
+    HeaderSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +61,9 @@ import {CarouselComponent} from './components/shared/carousel/carousel.component
     MatCardModule,
     MatMenuModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatOptionModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]
