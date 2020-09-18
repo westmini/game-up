@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, HostListener, Input, OnInit} from '@angular/core';
 import {Game} from '../../../models/classes/game';
 
 @Component({
@@ -10,6 +10,10 @@ export class CarouselComponent implements OnInit {
   @Input() games: Array<Game>;
   currentImages: Array<Game> = [];
   incrementValue: number;
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.setCarousel();
+  }
 
   constructor() {
   }

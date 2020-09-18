@@ -1,5 +1,13 @@
 <app-navbar></app-navbar>
-<app-image-grid [gridData]="games"></app-image-grid>
-<app-video-player [videoData]="games"></app-video-player>
+<div fxLayout="row" fxLayoutAlign="center" *ngIf="games.length > 0">
+  <div class="grid-container" ngStyle.lt-md="width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;">
+<app-image-grid *ngIf="games.length > 0" [gridData]="games"></app-image-grid>
+<app-video-player  [videoData]="games"></app-video-player>
 <app-carousel *ngIf="games.length > 0" [games]="games"></app-carousel>
+  </div>
+</div>
 <app-footer></app-footer>
+

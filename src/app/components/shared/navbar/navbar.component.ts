@@ -1,54 +1,62 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import {GamesService} from '../../../services/games.service';
+import {Game, updateGameScreenshots} from '../../../models/classes/game';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, AfterViewInit {
+  @Input() panelWidth: string | number
   url = '../../assets/videos/logo/gear-up-logo.mp4';
   gameSearchInput: FormGroup;
-  filteredStates: Observable<any[]>;
+  games: Observable<any>;
+  word = '';
 
-  states: any[] = [
-    {
-      name: 'Arkansas',
-      population: '2.978M',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_Arkansas.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Arkansas.svg'
-    },
-    {
-      name: 'California',
-      population: '39.14M',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_California.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg'
-    },
-    {
-      name: 'Florida',
-      population: '20.27M',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_Florida.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Florida.svg'
-    },
-    {
-      name: 'Texas',
-      population: '27.47M',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_Texas.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Texas.svg'
-    }
-  ];
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private gamesService: GamesService) {
+  }
 
   ngOnInit(): void {
     this.setForm();
-    this.filteredStates = this.gameSearchInput.valueChanges
-      .pipe(
-        startWith(''),
-        map(state => state ? this._filterStates(state) : this.states.slice())
-      );
+    this.panelWidth = 500;
+  }
 
+  getSearchedGames(event) {
+    console.log('Event Code: ', event.key);
+    if (event.key.length !== 1 && event.code !== 'Backspace') {
+      return;
+    } else if (event.code === 'Backspace') {
+
+    } else {
+      this.word = this.word + event.key;
+    }
+    this.getGames();
+  }
+
+  getGames() {
+    this.word.charAt(0).toUpperCase();
+    console.log('Word: ', this.word);
+    this.gamesService.getSpecificGames(this.word).subscribe(gameResponse => {
+      console.log('Games: ', gameResponse);
+      const gamesResponse = Object.values(gameResponse);
+      const mappedGames = gamesResponse.map(game => {
+        return {
+          id: game.id,
+          gameName: game.name,
+          description: game.summary,
+          url: game.url,
+          screenshots: game.screenshots,
+          videos: game.videos,
+          cover: game.cover.url
+        };
+      });
+      updateGameScreenshots(mappedGames);
+      this.games = of(mappedGames);
+    });
   }
 
   private setForm(): void {
@@ -56,10 +64,22 @@ export class NavbarComponent implements OnInit {
       searchField: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]]
     });
   }
-  private _filterStates(value: string): any[] {
-    const filterValue = value.toLowerCase();
 
-    return this.states.filter(state => state.name.toLowerCase().indexOf(filterValue) === 0);
+  listenForKeyEvents() {
+    this.gameSearchInput.controls.searchField.valueChanges.subscribe(letter => {
+
+      if (letter === '') {
+        return;
+      } else {
+        this.word = letter;
+        this.getGames();
+      }
+
+    });
+  }
+
+  ngAfterViewInit(): void {
+    this.listenForKeyEvents();
   }
 
 }

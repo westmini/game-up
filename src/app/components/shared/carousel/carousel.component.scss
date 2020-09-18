@@ -1,10 +1,3 @@
-.grid-container{
-  width: 65%;
-  max-width: 65%;
-  height: 50%;
-  max-height: 50%;
-}
-
 .top-row{
   height: 250px;
 }
@@ -39,6 +32,11 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.carousel-nav-box:hover {
+  background-color: indianred;
+}
+
 
 .carousel-nav-arrow{
   margin: 0 0 0px;

@@ -5,7 +5,8 @@ export class Game {
   gameName: string;
   description: string;
   genre?: string;
-  videos?: any;
+  videos?: string;
+  cover?: string;
   url: string;
   screenshots?: any;
   rating?: number;
@@ -20,17 +21,21 @@ export function updateGameScreenshots(games): Array<Game> {
     game.screenshots = game.screenshots.map(screenshot => {
       return screenshot.url.replace('thumb', '1080p');
     });
+    if (game.cover) {
+      game.cover.replace('thumb', '1080p');
+    }
+
   });
   return games;
 }
 
 export function updateGameVideos(games): Array<Game> {
   games.forEach(game => {
-   
-      const youtube = 'https://www.youtube.com/embed/';
-game.videos = game.videos.map(video => {
-return youtube.concat('', video.video_id);
+
+    const youtube = 'https://www.youtube.com/embed/';
+    game.videos = game.videos.map(video => {
+      return youtube.concat('', video.video_id);
     });
-    });
+  });
   return games;
 }

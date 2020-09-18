@@ -1,0 +1,10 @@
+::ng-deep .cdk-overlay-pane {
+  /* Do you changes here */
+  min-width:750px;
+  height: 700px;
+  overflow-y: hidden;
+}
+::ng-deep .mat-autocomplete-panel .mat-autocomplete{
+  /* Do you changes here */
+  overflow-y: hidden;
+}

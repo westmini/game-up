@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
           description: gameResponse.summary,
           url: gameResponse.url,
           screenshots: gameResponse.screenshots,
-          videos: gameResponse.videos,
+          videos: gameResponse.videos
         };
       });
       updateGameScreenshots(this.games);

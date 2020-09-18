@@ -1,57 +1,33 @@
-<div fxLayout="row" fxLayoutAlign="space-evenly" style="width: 100%; background-color: black">
-  <div fxLayout="row" style="width: 65%; max-width: 65%">
-    <div fxLayout="column" fxLayoutAlign="center" fxFlex="25">
-      <video id="myVideo" preload="auto" crossorigin autoplay="true" loop="true" style="width: 150px;">
+<div fxLayout="row" fxLayoutAlign="space-evenly" style="width: 100%; background-color: black" fxLayoutAlign.lt-md="start">
+  <div fxLayout="row" style="width: 65%; max-width: 65%" ngStyle.lt-md="width: 100%; max-width: 100%" fxLayoutAlign.lt-md="space-evenly">
+    <div fxLayout="column" fxLayoutAlign="center" fxFlex="25" fxFlex.lt-md="10">
+      <video id="myVideo" preload="auto" crossorigin autoplay="true" loop="true" style="width: 150px;" ngStyle.lt-md="width: 75px" fxFlexAlign="start">
         <source [src]="url | safe" type='video/mp4'>
       </video>
     </div>
-    <div fxLayout="column" fxLayoutAlign="center" fxFlex="25" >
+    <div fxLayout="column" fxLayoutAlign="center" fxFlex="50" >
       <form class="example-form" [formGroup]="gameSearchInput" style="width: 100%;">
         <mat-form-field class="example-full-width" style="width: 100%;">
           <div fxlayout="row" fxFill  style="background-color: white; height: 100px;">
             <div fxLayout="column" fxFlex="87.5">
-              <input [matAutocomplete]="auto" matInput style="font-size: 3em; width: 100%;">
-              <mat-autocomplete #auto="matAutocomplete">
-                <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
-                  <img class="example-option-img" aria-hidden [src]="state.flag" height="25">
-                  <span>{{state.name}}</span> |
-                  <small>Population: {{state.population}}</small>
+              <input formControlName="searchField" z [matAutocomplete]="auto" matInput style="font-size: 2em; width: 100%; height: 50px;" ngStyle.lt-md="font-size: 1.5em;">
+              <mat-autocomplete #auto="matAutocomplete" style="width: 500px; overflow-y: hidden" ngStyle.lt-md="width: 50px;">
+                <mat-option *ngFor="let game of games | async" [value]="game.gameName" style="height: 150px;">
+                  <div fxLayout="row" fxLayoutAlign="space-between">
+                    <img aria-hidden [src]="game.cover" fxFlexAlign="center" height="75">
+                    <span style="font-size: 2em">{{game.gameName}}</span>
+                  </div>
                 </mat-option>
+                <div style="background-color: whitesmoke;  padding-top: 2em" fxLayout="row" fxLayoutAlign="center">
+                  <h1> View All {{gameSearchInput.controls.searchField.value}} Games</h1>
+                </div>
               </mat-autocomplete>
             </div>
-<!--            <div fxLayout="column" fxFlex="12.5" fxLayoutAlign="center">-->
-<!--              <mat-icon style="transform: scale(2)">search</mat-icon>-->
-<!--            </div>-->
           </div>
-<!--          <mat-label style="color: black">Telephone</mat-label>-->
-<!--          <input  formControlName="searchField" type="tel" matInput placeholder="Enter a Game Name">-->
-<!--          <mat-icon matSuffix>mode_edit</mat-icon>-->
         </mat-form-field>
       </form>
     </div>
-    <div fxLayout="column" fxLayoutAlign="center" fxFlex="25" >
-      <button mat-button style="color: white; padding-top: 5%;" fxFlexAlign="center" [matMenuTriggerFor]="menu">
-        <div fxLayout="row" fxFlex="100">
-          <mat-icon style="color: white; transform: scale(2)">games</mat-icon>
-          <h1 style="color: white; font-size: 30px; padding-left: 25px;">Games</h1>
-        </div>
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>
-          <mat-icon>dialpad</mat-icon>
-          <span>Redial</span>
-        </button>
-        <button mat-menu-item disabled>
-          <mat-icon>voicemail</mat-icon>
-          <span>Check voice mail</span>
-        </button>
-        <button mat-menu-item>
-          <mat-icon>notifications_off</mat-icon>
-          <span>Disable alerts</span>
-        </button>
-      </mat-menu>
-    </div>
-    <div fxLayout="column" fxLayoutAlign="center" fxFlex="25">
+    <div fxLayout="column" fxLayoutAlign="center" fxFlex="25" fxHide.lt-md="true">
       <button mat-button style="color: white; padding-top: 5%;" fxFlexAlign="end" [matMenuTriggerFor]="menu">
         <div fxLayout="row" fxFlex="100">
           <mat-icon style="color: white; transform: scale(2)">games</mat-icon>

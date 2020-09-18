@@ -1,14 +1,11 @@
-<div fxLayout="row" fxLayoutAlign="center" *ngIf="games.length > 0">
-  <div class="grid-container">
-    <div fxLayout="row" fxLayoutAlign="space-evenly">
-      <div class="carousel-nav-container">
-        <div (click)="decrementImages()"  class="carousel-nav-box"><h4 class="carousel-nav-arrow"><</h4></div>
-        <div (click)="incrementImages()" class="carousel-nav-box"><h4 class="carousel-nav-arrow">></h4></div>
-      </div>
-      <div *ngFor="let currentImage of currentImages;" fxLayout="column" fxLayoutAlign="end" class="top-row padding-10" fxFlex="50" id="image-container">
-        <h1 class="image-text" fxFlexAlign="start">{{currentImage.gameName}}</h1>
-        <img fxFlex="100" [src]="currentImage.screenshots[0]">
-      </div>
-    </div>
+<div fxLayout="row" fxLayoutAlign="space-evenly">
+  <div class="carousel-nav-container">
+    <div (click)="decrementImages()" class="carousel-nav-box"><h4 class="carousel-nav-arrow"><</h4></div>
+    <div (click)="incrementImages()" class="carousel-nav-box"><h4 class="carousel-nav-arrow">></h4></div>
+  </div>
+  <div *ngFor="let currentImage of currentImages;" fxLayout="column" fxLayoutAlign="end" class="top-row padding-10"
+       fxFlex="50" id="image-container" fxFlex.lt-md="100">
+    <h1 class="image-text" fxFlexAlign="start">{{currentImage.gameName}}</h1>
+    <img fxFlex.lt-md="50" fxFlex="100" [src]="currentImage.screenshots[0]">
   </div>
 </div>

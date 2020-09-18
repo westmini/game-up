@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,13 @@ export class GamesService {
     let headers = new HttpHeaders();
     headers = headers.set('user-key', '3529e735235b970f787422c16376f395');
     return this.httpClient.post(gamesEndpoint, 'fields *; fields screenshots.*; fields genres.*; fields platforms.*; fields release_dates.*; fields videos.*; fields cover.*;  where summary != null & screenshots != null & videos.video_id != null & name = "Halo"*; sort release_dates asc; limit 20;', {headers});
+  }
+
+  getSpecificGames(searchTerm): Observable<object> {
+    const gamesEndpoint = this.endPoint + '/games';
+    let headers = new HttpHeaders();
+    headers = headers.set('user-key', '3529e735235b970f787422c16376f395');
+    return this.httpClient.post(gamesEndpoint, 'fields *; fields screenshots.*; fields genres.*; fields platforms.*; fields release_dates.*; fields videos.*; fields cover.*;  where summary != null & screenshots != null & videos.video_id != null & name = "' + searchTerm +  '"*; sort release_dates asc; limit 6;', {headers});
   }
 
   getGenres() {
