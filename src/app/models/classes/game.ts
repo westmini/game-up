@@ -17,6 +17,23 @@ export class Game {
 
 }
 
+export function getGameScreenshots(games?: Array<Game>, game?: Game): Array<string> {
+  const contentList: Array<string> = [];
+  if (games.length > 0) {
+    games.forEach(gameValue => {
+      contentList.push(gameValue.screenshots[0]);
+    });
+    console.log('Screenshot List From Array Of Games: ', contentList);
+    return contentList;
+  } else {
+    game.screenshots.forEach(screenshot => {
+      contentList.push(screenshot);
+    });
+    console.log('Screenshot List From Single Game Object: ', contentList);
+    return contentList;
+  }
+}
+
 export function updateGameScreenshots(games): Array<Game> {
   games.forEach(game => {
     game.screenshots = game.screenshots.map(screenshot => {

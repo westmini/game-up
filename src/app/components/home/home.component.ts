@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {GamesService} from '../../services/games.service';
-import {Game, updateGameScreenshots, updateGameVideos} from '../../models/classes/game';
+import {Game, getGameScreenshots, updateGameScreenshots, updateGameVideos} from '../../models/classes/game';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +9,7 @@ import {Game, updateGameScreenshots, updateGameVideos} from '../../models/classe
 })
 export class HomeComponent implements OnInit {
   games: Array<Game> = new Array<Game>();
+  contentList: Array<string>;
   constructor(private gameService: GamesService) {
   }
 
@@ -31,6 +32,7 @@ export class HomeComponent implements OnInit {
       });
       updateGameScreenshots(this.games);
       updateGameVideos(this.games);
+      this.contentList = getGameScreenshots(this.games);
     });
   }
 
