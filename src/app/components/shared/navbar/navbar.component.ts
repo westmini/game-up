@@ -3,7 +3,8 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Observable, of} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {GamesService} from '../../../services/games.service';
-import {Game, updateGameScreenshots} from '../../../models/classes/game';
+import {Game, updateGameArtwork, updateGameScreenshots, updateGameVideos} from '../../../models/classes/game';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -17,7 +18,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   games: Observable<any>;
   word = '';
 
-  constructor(private formBuilder: FormBuilder, private gamesService: GamesService) {
+  constructor(private formBuilder: FormBuilder, private gamesService: GamesService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -26,7 +27,6 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   }
 
   getSearchedGames(event) {
-    console.log('Event Code: ', event.key);
     if (event.key.length !== 1 && event.code !== 'Backspace') {
       return;
     } else if (event.code === 'Backspace') {
@@ -39,9 +39,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 
   getGames() {
     this.word.charAt(0).toUpperCase();
-    console.log('Word: ', this.word);
     this.gamesService.getSpecificGames(this.word).subscribe(gameResponse => {
-      console.log('Games: ', gameResponse);
       const gamesResponse = Object.values(gameResponse);
       const mappedGames = gamesResponse.map(game => {
         return {
@@ -51,12 +49,21 @@ export class NavbarComponent implements OnInit, AfterViewInit {
           url: game.url,
           screenshots: game.screenshots,
           videos: game.videos,
-          cover: game.cover.url
+          cover: game.cover.url,
+          artworks: game.artworks
         };
       });
       updateGameScreenshots(mappedGames);
+      updateGameArtwork(mappedGames);
+      updateGameVideos(mappedGames);
       this.games = of(mappedGames);
     });
+  }
+
+  navigateToGame(id: string, game: Game): void {
+    this.router.navigate(['/game/' + id], {state: {
+        game
+      }});
   }
 
   private setForm(): void {

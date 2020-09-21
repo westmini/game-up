@@ -1,4 +1,4 @@
-<div fxLayout="row" fxLayoutAlign="space-evenly" fxLayout.lt-md="column">
+<div fxLayout="row" fxLayoutAlign="space-evenly" fxLayout.lt-md="column" *ngIf="firstRow.length > 0; else test">
   <div *ngFor="let firstRowGame of firstRow" fxLayout="column" fxLayoutAlign="end" class="top-row padding-10"
        fxFlex="33.3">
     <h1 class="image-text" fxFlexAlign="start">{{firstRowGame.gameName}}</h1>
@@ -27,3 +27,6 @@
   </div>
 </div>
 
+<ng-template #test>
+  <h2 style="background-color: white">hey</h2>
+</ng-template>

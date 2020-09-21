@@ -29,6 +29,9 @@ import {CarouselComponent} from './components/shared/carousel/carousel.component
 import { HeaderSearchComponent } from './components/shared/header-search/header-search.component';
 import {MatOptionModule} from "@angular/material/core";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import { GameComponent } from './components/game/game.component';
+import {GameModule} from "./components/game/game.module";
+import {MatTabsModule} from "@angular/material/tabs";
 
 @NgModule({
   declarations: [
@@ -47,24 +50,27 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
     SafePipe,
     GridComponent,
     FooterComponent,
-    HeaderSearchComponent
+    HeaderSearchComponent,
+    GameComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    FlexLayoutModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatTableModule,
-    MatCardModule,
-    MatMenuModule,
-    MatButtonModule,
-    MatIconModule,
-    MatOptionModule,
-    MatAutocompleteModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        FlexLayoutModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        GameModule,
+        MatInputModule,
+        MatTableModule,
+        MatCardModule,
+        MatMenuModule,
+        MatButtonModule,
+        MatIconModule,
+        MatOptionModule,
+        MatAutocompleteModule,
+        MatTabsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

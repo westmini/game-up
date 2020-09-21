@@ -10,9 +10,9 @@
         <mat-form-field class="example-full-width" style="width: 100%;">
           <div fxlayout="row" fxFill  style="background-color: white; height: 100px;">
             <div fxLayout="column" fxFlex="87.5">
-              <input formControlName="searchField" z [matAutocomplete]="auto" matInput style="font-size: 2em; width: 100%; height: 50px;" ngStyle.lt-md="font-size: 1.5em;">
+              <input formControlName="searchField"  [matAutocomplete]="auto" matInput style="font-size: 2em; width: 100%; height: 50px;" ngStyle.lt-md="font-size: 1.5em;">
               <mat-autocomplete #auto="matAutocomplete" style="width: 500px; overflow-y: hidden" ngStyle.lt-md="width: 50px;">
-                <mat-option *ngFor="let game of games | async" [value]="game.gameName" style="height: 150px;">
+                  <mat-option *ngFor="let game of games | async" [value]="game.gameName" style="height: 150px;" (click)="navigateToGame(game.id, game)">
                   <div fxLayout="row" fxLayoutAlign="space-between">
                     <img aria-hidden [src]="game.cover" fxFlexAlign="center" height="75">
                     <span style="font-size: 2em">{{game.gameName}}</span>

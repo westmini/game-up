@@ -22,11 +22,9 @@ export class TableComponent implements OnInit, DoCheck {
 
   ngDoCheck(): void {
     this.dataSource.data = this.tableData;
-    console.log('Data Sauce: ', this.dataSource);
   }
 
   log(val){
-    console.log('Val: ', val);
   }
 
 

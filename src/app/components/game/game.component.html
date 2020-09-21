@@ -1,0 +1,14 @@
+<app-navbar></app-navbar>
+<dix fxLayout="column" fxFill >
+<div fxLayout="row" fxLayoutAlign="center" fxFlex="30" style="margin-top: 5%;">
+  <div style="width: 17.5%; height: 100%;">
+    <img fxFlex="100" style="filter: drop-shadow(12px 4px 10px black);" [src]="game.cover">
+  </div>
+</div>
+  <div fxLayout="row" fxLayoutAlign="center">
+    <mat-card style="width: 65%; text-align: center;">
+      <h1 style="font-size: 3em;">{{game.gameName}}</h1>
+      <h2>{{game.description}}</h2>
+    </mat-card>
+  </div>
+</dix>

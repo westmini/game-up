@@ -29,7 +29,6 @@ export class SearchComponent implements OnInit {
         this.game = {id: test.id, gameName: test.name, description: test.summary, genre: test.genre, url: test.url}
         this.games.push(this.game);
       });
-      console.log('Games returned from Endpoint: ', this.games);
     });
   }
 }
